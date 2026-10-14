@@ -1,0 +1,16 @@
+[build-system]
+requires = ["setuptools>=77"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "mol"
+version = "0.1.0"
+description = "Map-Optimize-Learn (MOL) para dados tabulares e uma versão corrigida (MOL v2)"
+readme = "README.md"
+requires-python = ">=3.11"
+license = "MIT"
+authors = [{ name = "Polyana Silva" }]
+
+[tool.setuptools.packages.find]
+where = ["src"]
+include = ["mol*"]

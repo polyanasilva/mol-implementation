@@ -1,0 +1,15 @@
+teste,pergunta,A,B,media_A,media_B,diferenca_A_menos_B,p_valor,significativo_0.05
+1,otimizar é melhor que sortear?,PSO (otimizado),média das aleatórias,0.9312337003767025,0.9662257316719792,-0.034992031295276727,0.0078125,True
+1,otimizar é melhor que sortear?,EPSO (otimizado),média das aleatórias,0.9118625036221385,0.9662257316719792,-0.05436322804984073,0.00390625,True
+1,otimizar é melhor que sortear?,ABC (otimizado),média das aleatórias,0.9542994784120544,0.9662257316719792,-0.011926253259924802,0.296875,False
+2,o formato 2D é melhor que o vetor?,top16-4x4,top16-16x1,0.9506048971312664,0.9547631121414083,-0.004158215010141908,0.78125,False
+2,o formato quadrado é melhor que 2x8?,top16-4x4,top16-2x8,0.9506048971312664,0.9629998551144595,-0.012394957983193122,0.28125,False
+2,a ordem do Map nos pixels importa?,top16-4x4,top16-4x4 embaralhado (média),0.9506048971312664,0.9554368299043757,-0.0048319327731093376,0.421875,False
+2,o formato 2D é melhor que o vetor? (máscara do ABC),abc16-4x4,abc16-16x1,0.9548862648507679,0.95257534048102,0.002310924369747891,0.8125,False
+2,a ordem do Map nos pixels importa? (máscara do ABC),abc16-4x4,abc16-4x4 embaralhado (média),0.9548862648507679,0.9546085675649569,0.00027769728581095166,0.796875,False
+3,a convolução ajuda? (16 primeiras),top16-16x1,top16-vetor-MLP,0.9547631121414083,0.9571175021732831,-0.0023543900318747646,0.625,False
+3,a imagem 4x4 é melhor que o vetor numa rede comum?,top16-4x4,top16-vetor-MLP,0.9506048971312664,0.9571175021732831,-0.0065126050420166726,0.5,False
+3,a convolução ajuda? (máscara do ABC),abc16-16x1,abc16-vetor-MLP,0.95257534048102,0.9641553172993336,-0.011579976818313575,0.28125,False
+3,a imagem 5x6 é melhor que o vetor? (30 features),todas30-5x6,todas30-vetor-MLP,0.9736090988119386,0.9724536366270646,0.0011554621848739455,1.0,False
+3,o melhor MOL é melhor que uma rede comum com tudo?,ABC (otimizado),todas30-vetor-MLP,0.9542994784120544,0.9724536366270646,-0.018154158215010208,0.125,False
+3,o melhor MOL é melhor que a regressão logística?,ABC (otimizado),Regressão logística,0.9542994784120544,0.9723920602723849,-0.01809258186033047,0.1953125,False

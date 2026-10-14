@@ -1,0 +1,73 @@
+{
+  "mol_original": {
+    "forma": [
+      16,
+      1
+    ],
+    "learning_rate": 0.001,
+    "balanced_accuracy": 0.9742,
+    "accuracy": 0.9737,
+    "sensitivity": 0.9762,
+    "specificity": 0.9722,
+    "precision": 0.9535,
+    "f1": 0.9647,
+    "roc_auc": 0.9937,
+    "tp": 41.0,
+    "fp": 2.0,
+    "tn": 70.0,
+    "fn": 1.0
+  },
+  "mol_v2": {
+    "forma": [
+      5,
+      6
+    ],
+    "learning_rate": 0.01,
+    "balanced_accuracy": 0.9692,
+    "accuracy": 0.9737,
+    "sensitivity": 0.9524,
+    "specificity": 0.9861,
+    "precision": 0.9756,
+    "f1": 0.9639,
+    "roc_auc": 0.9947,
+    "tp": 40.0,
+    "fp": 1.0,
+    "tn": 71.0,
+    "fn": 2.0
+  },
+  "lr": {
+    "params": {
+      "clf__C": "1.0",
+      "clf__l1_ratio": "0"
+    },
+    "balanced_accuracy": 0.9692,
+    "accuracy": 0.9737,
+    "sensitivity": 0.9524,
+    "specificity": 0.9861,
+    "precision": 0.9756,
+    "f1": 0.9639,
+    "roc_auc": 0.996,
+    "tp": 40.0,
+    "fp": 1.0,
+    "tn": 71.0,
+    "fn": 2.0
+  },
+  "ann": {
+    "params": {
+      "clf__hidden_layer_sizes": "(30,)",
+      "clf__learning_rate_init": "0.01",
+      "clf__solver": "adam"
+    },
+    "balanced_accuracy": 0.9643,
+    "accuracy": 0.9737,
+    "sensitivity": 0.9286,
+    "specificity": 1.0,
+    "precision": 1.0,
+    "f1": 0.963,
+    "roc_auc": 0.9931,
+    "tp": 39.0,
+    "fp": 0.0,
+    "tn": 72.0,
+    "fn": 3.0
+  }
+}

@@ -1,0 +1,12 @@
+pergunta,A,B,media_A,media_B,diferenca,p_valor,significativo_0.05
+arranjo otimizado é melhor que pixels aleatórios?,30-v2-correlacao,30-aleatorio,0.970416787404617,0.9680911330049261,0.002325654399690902,0.76953125,False
+arranjo otimizado é melhor que o pior arranjo?,30-v2-correlacao,30-pior,0.970416787404617,0.9708840432724815,-0.00046725586786444673,0.8828125,False
+arranjo otimizado é melhor que a ordem do Map original?,30-v2-correlacao,30-ranking,0.970416787404617,0.9714587559161595,-0.0010419685115424793,0.734375,False
+a imagem é melhor que o vetor numa rede comum?,30-v2-correlacao,30-vetor-MLP,0.970416787404617,0.9743733700376703,-0.003956582633053318,0.15625,False
+MOL v2 é melhor que a regressão logística?,30-v2-correlacao,Regressão logística,0.970416787404617,0.9723920602723849,-0.0019752728677678855,0.609375,False
+MOL v2 é melhor que a ANN tabular?,30-v2-correlacao,ANN tabular (sklearn),0.970416787404617,0.9735475224572587,-0.00313073505264172,0.25390625,False
+MOL v2 é melhor que o XGBoost?,30-v2-correlacao,XGBoost,0.970416787404617,0.9647855694001739,0.005631218004443106,0.51953125,False
+MOL v2 é melhor que o MOL original?,30-v2-correlacao,MOL original (ABC),0.970416787404617,0.9542994784120544,0.016117308992562585,0.13671875,False
+(16 features) arranjo otimizado é melhor que aleatório?,16-v2-correlacao,16-aleatorio,0.9643593644354294,0.9688616826040761,-0.004502318168646768,0.609375,False
+(16 features) a imagem é melhor que o vetor?,16-v2-correlacao,16-vetor-MLP,0.9643593644354294,0.9712981744421907,-0.006938810006761331,0.125,False
+usar as 30 é melhor que selecionar 16 por mRMR?,30-v2-correlacao,16-v2-correlacao,0.970416787404617,0.9643593644354294,0.0060574229691876535,0.26171875,False

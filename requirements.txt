@@ -1,0 +1,21 @@
+# Ambiente dos experimentos (testado com Python 3.13)
+numpy==2.4.2
+pandas==2.3.3
+scipy==1.17.1
+scikit-learn==1.8.0
+tensorflow==2.21.0
+keras==3.15.1
+xgboost==3.2.0
+lightgbm==4.6.0
+matplotlib==3.10.8
+seaborn==0.13.2
+pillow==12.1.1
+PyYAML==6.0.3
+
+# notebooks
+jupyter==1.1.1
+notebook==7.5.4
+ipykernel==7.2.0
+
+# o pacote deste repositório (src/mol), em modo editável
+-e .

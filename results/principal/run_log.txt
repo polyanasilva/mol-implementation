@@ -1,0 +1,132 @@
+WARNING:tensorflow:5 out of the last 5 calls to <function TensorFlowTrainer.make_predict_function.<locals>.one_step_on_data_distributed at 0x1780b39c0> triggered tf.function retracing. Tracing is expensive and the excessive number of tracings could be due to (1) creating @tf.function repeatedly in a loop, (2) passing tensors with different shapes, (3) passing Python objects instead of tensors. For (1), please define your @tf.function outside of the loop. For (2), @tf.function has reduce_retracing=True option that can avoid unnecessary retracing. For (3), please refer to https://www.tensorflow.org/guide/function#controlling_retracing and https://www.tensorflow.org/api_docs/python/tf/function for  more details.
+WARNING:tensorflow:6 out of the last 6 calls to <function TensorFlowTrainer.make_predict_function.<locals>.one_step_on_data_distributed at 0x1780b39c0> triggered tf.function retracing. Tracing is expensive and the excessive number of tracings could be due to (1) creating @tf.function repeatedly in a loop, (2) passing tensors with different shapes, (3) passing Python objects instead of tensors. For (1), please define your @tf.function outside of the loop. For (2), @tf.function has reduce_retracing=True option that can avoid unnecessary retracing. For (3), please refer to https://www.tensorflow.org/guide/function#controlling_retracing and https://www.tensorflow.org/api_docs/python/tf/function for  more details.
+
+[1/4] Dados
+✓ Dataset carregado de data/breast-cancer.csv: 569 amostras, 30 features
+  Benigno (0): 357 | Maligno (1): 212
+✓ Treino: 455 (malignos: 170) | Teste: 114 (malignos: 42)
+
+[2/4] MOL + CNN (10 folds, grid de learning rate [0.1, 0.01, 0.001, 0.0001])
+  MOL-euclidean-pso            CV 0.9312 ± 0.0463 | teste 0.9405 | 93.2s
+  MOL-euclidean-epso           CV 0.9119 ± 0.0513 | teste 0.8502 | 93.2s
+  MOL-euclidean-abc            CV 0.9543 ± 0.0374 | teste 0.9742 | 103.3s
+  MOL-anova-pso                CV 0.9312 ± 0.0463 | teste 0.9405 | 90.8s
+  MOL-anova-epso               CV 0.9119 ± 0.0513 | teste 0.8502 | 90.5s
+  MOL-anova-abc                CV 0.9543 ± 0.0374 | teste 0.9742 | 98.1s
+  MOL-fisher-pso               CV 0.9312 ± 0.0463 | teste 0.9405 | 90.7s
+  MOL-fisher-epso              CV 0.9119 ± 0.0513 | teste 0.8502 | 94.4s
+  MOL-fisher-abc               CV 0.9543 ± 0.0374 | teste 0.9742 | 100.5s
+  MOL-gain_ratio-pso           CV 0.9183 ± 0.0490 | teste 0.8671 | 95.7s
+  MOL-gain_ratio-epso          CV 0.9119 ± 0.0513 | teste 0.8433 | 96.7s
+  MOL-gain_ratio-abc           CV 0.9541 ± 0.0272 | teste 0.9742 | 104.2s
+  MOL-mutual_info-pso          CV 0.9283 ± 0.0535 | teste 0.8671 | 93.5s
+  MOL-mutual_info-epso         CV 0.9089 ± 0.0524 | teste 0.8502 | 96.1s
+  MOL-mutual_info-abc          CV 0.9518 ± 0.0408 | teste 0.9692 | 102.3s
+
+[3/4] Baselines (grid 'quick', FS ['S', 'E', 'W'])
+/opt/miniconda3/lib/python3.13/site-packages/requests/__init__.py:113: RequestsDependencyWarning: urllib3 (2.6.3) or chardet (6.0.0.post1)/charset_normalizer (3.4.4) doesn't match a supported version!
+  warnings.warn(
+/opt/miniconda3/lib/python3.13/site-packages/requests/__init__.py:113: RequestsDependencyWarning: urllib3 (2.6.3) or chardet (6.0.0.post1)/charset_normalizer (3.4.4) doesn't match a supported version!
+  warnings.warn(
+/opt/miniconda3/lib/python3.13/site-packages/requests/__init__.py:113: RequestsDependencyWarning: urllib3 (2.6.3) or chardet (6.0.0.post1)/charset_normalizer (3.4.4) doesn't match a supported version!
+  warnings.warn(
+/opt/miniconda3/lib/python3.13/site-packages/requests/__init__.py:113: RequestsDependencyWarning: urllib3 (2.6.3) or chardet (6.0.0.post1)/charset_normalizer (3.4.4) doesn't match a supported version!
+  warnings.warn(
+/opt/miniconda3/lib/python3.13/site-packages/requests/__init__.py:113: RequestsDependencyWarning: urllib3 (2.6.3) or chardet (6.0.0.post1)/charset_normalizer (3.4.4) doesn't match a supported version!
+  warnings.warn(
+/opt/miniconda3/lib/python3.13/site-packages/requests/__init__.py:113: RequestsDependencyWarning: urllib3 (2.6.3) or chardet (6.0.0.post1)/charset_normalizer (3.4.4) doesn't match a supported version!
+  warnings.warn(
+/opt/miniconda3/lib/python3.13/site-packages/requests/__init__.py:113: RequestsDependencyWarning: urllib3 (2.6.3) or chardet (6.0.0.post1)/charset_normalizer (3.4.4) doesn't match a supported version!
+  warnings.warn(
+/opt/miniconda3/lib/python3.13/site-packages/requests/__init__.py:113: RequestsDependencyWarning: urllib3 (2.6.3) or chardet (6.0.0.post1)/charset_normalizer (3.4.4) doesn't match a supported version!
+  warnings.warn(
+  ANN-S                        CV 0.9735 ± 0.0243 | teste 0.9643 | 3.6s
+  ANN-E                        CV 0.9572 ± 0.0373 | teste 0.9524 | 2.7s
+  ANN-W                        CV 0.9648 ± 0.0234 | teste 0.9692 | 23.7s
+  LR-S                         CV 0.9724 ± 0.0261 | teste 0.9692 | 61.9s
+  LR-E                         CV 0.9724 ± 0.0269 | teste 0.9692 | 0.2s
+  LR-W                         CV 0.9665 ± 0.0208 | teste 0.9692 | 1.3s
+  KNN-S                        CV 0.9688 ± 0.0416 | teste 0.9454 | 0.1s
+  RF-S                         CV 0.9588 ± 0.0402 | teste 0.9643 | 2.9s
+  RF-E                         CV 0.9454 ± 0.0530 | teste 0.9405 | 4.2s
+  RF-W                         CV 0.9617 ± 0.0386 | teste 0.9643 | 36.5s
+  XGB-S                        CV 0.9648 ± 0.0295 | teste 0.9524 | 0.6s
+  XGB-E                        CV 0.9412 ± 0.0531 | teste 0.9196 | 1.1s
+  XGB-W                        CV 0.9654 ± 0.0253 | teste 0.9524 | 12.8s
+  LGBM-S                       CV 0.9631 ± 0.0301 | teste 0.9643 | 0.2s
+  LGBM-E                       CV 0.9613 ± 0.0347 | teste 0.9643 | 0.5s
+  LGBM-W                       CV 0.9626 ± 0.0280 | teste 0.9643 | 6.9s
+
+[4/4] Relatório
+✓ Imagens do MOL salvas em results/images_with_pathology (maligno) e images_without_pathology (benigno)
+
+====================================================================================================
+RESUMO (ordenado pela acurácia balanceada média na validação cruzada)
+====================================================================================================
+               model  cv_balanced_accuracy_mean  cv_balanced_accuracy_std  test_balanced_accuracy  test_sensitivity  test_specificity  test_roc_auc  n_features
+               ANN-S                     0.9735                    0.0243                  0.9643            0.9286            1.0000        0.9931          30
+                LR-E                     0.9724                    0.0269                  0.9692            0.9524            0.9861        0.9977          13
+                LR-S                     0.9724                    0.0261                  0.9692            0.9524            0.9861        0.9960          30
+               KNN-S                     0.9688                    0.0416                  0.9454            0.9048            0.9861        0.9840          30
+                LR-W                     0.9665                    0.0208                  0.9692            0.9524            0.9861        0.9974          15
+               XGB-W                     0.9654                    0.0253                  0.9524            0.9048            1.0000        0.9967          10
+               ANN-W                     0.9648                    0.0234                  0.9692            0.9524            0.9861        0.9954          15
+               XGB-S                     0.9648                    0.0295                  0.9524            0.9048            1.0000        0.9940          30
+              LGBM-S                     0.9631                    0.0301                  0.9643            0.9286            1.0000        0.9950          30
+              LGBM-W                     0.9626                    0.0280                  0.9643            0.9286            1.0000        0.9950          15
+                RF-W                     0.9617                    0.0386                  0.9643            0.9286            1.0000        0.9947          15
+              LGBM-E                     0.9613                    0.0347                  0.9643            0.9286            1.0000        0.9950          11
+                RF-S                     0.9588                    0.0402                  0.9643            0.9286            1.0000        0.9942          30
+               ANN-E                     0.9572                    0.0373                  0.9524            0.9048            1.0000        0.9997          13
+   MOL-euclidean-abc                     0.9543                    0.0374                  0.9742            0.9762            0.9722        0.9937          16
+      MOL-fisher-abc                     0.9543                    0.0374                  0.9742            0.9762            0.9722        0.9937          16
+       MOL-anova-abc                     0.9543                    0.0374                  0.9742            0.9762            0.9722        0.9937          16
+  MOL-gain_ratio-abc                     0.9541                    0.0272                  0.9742            0.9762            0.9722        0.9980          16
+ MOL-mutual_info-abc                     0.9518                    0.0408                  0.9692            0.9524            0.9861        0.9983          16
+                RF-E                     0.9454                    0.0530                  0.9405            0.8810            1.0000        0.9921           9
+               XGB-E                     0.9412                    0.0531                  0.9196            0.8810            0.9583        0.9924           4
+      MOL-fisher-pso                     0.9312                    0.0463                  0.9405            0.8810            1.0000        0.9967           2
+       MOL-anova-pso                     0.9312                    0.0463                  0.9405            0.8810            1.0000        0.9967           2
+   MOL-euclidean-pso                     0.9312                    0.0463                  0.9405            0.8810            1.0000        0.9967           2
+ MOL-mutual_info-pso                     0.9283                    0.0535                  0.8671            0.7619            0.9722        0.9828           2
+  MOL-gain_ratio-pso                     0.9183                    0.0490                  0.8671            0.7619            0.9722        0.9831           2
+     MOL-fisher-epso                     0.9119                    0.0513                  0.8502            0.7143            0.9861        0.9858           2
+      MOL-anova-epso                     0.9119                    0.0513                  0.8502            0.7143            0.9861        0.9858           2
+  MOL-euclidean-epso                     0.9119                    0.0513                  0.8502            0.7143            0.9861        0.9858           2
+ MOL-gain_ratio-epso                     0.9119                    0.0513                  0.8433            0.7143            0.9722        0.9871           2
+MOL-mutual_info-epso                     0.9089                    0.0524                  0.8502            0.7143            0.9861        0.9871           2
+
+Wilcoxon (melhor MOL vs. demais, pareado nos folds):
+        reference          compared_to  diff_cv_mean  p_value  significant_0.05
+MOL-euclidean-abc    MOL-euclidean-pso        0.0231   0.0234              True
+MOL-euclidean-abc   MOL-euclidean-epso        0.0424   0.0020              True
+MOL-euclidean-abc        MOL-anova-pso        0.0231   0.0234              True
+MOL-euclidean-abc       MOL-anova-epso        0.0424   0.0020              True
+MOL-euclidean-abc        MOL-anova-abc        0.0000   1.0000             False
+MOL-euclidean-abc       MOL-fisher-pso        0.0231   0.0234              True
+MOL-euclidean-abc      MOL-fisher-epso        0.0424   0.0020              True
+MOL-euclidean-abc       MOL-fisher-abc        0.0000   1.0000             False
+MOL-euclidean-abc   MOL-gain_ratio-pso        0.0360   0.0098              True
+MOL-euclidean-abc  MOL-gain_ratio-epso        0.0424   0.0020              True
+MOL-euclidean-abc   MOL-gain_ratio-abc        0.0002   0.9453             False
+MOL-euclidean-abc  MOL-mutual_info-pso        0.0260   0.0117              True
+MOL-euclidean-abc MOL-mutual_info-epso        0.0454   0.0020              True
+MOL-euclidean-abc  MOL-mutual_info-abc        0.0025   0.7148             False
+MOL-euclidean-abc                ANN-S       -0.0192   0.1406             False
+MOL-euclidean-abc                ANN-E       -0.0029   1.0000             False
+MOL-euclidean-abc                ANN-W       -0.0105   0.4219             False
+MOL-euclidean-abc                 LR-S       -0.0181   0.2109             False
+MOL-euclidean-abc                 LR-E       -0.0181   0.2656             False
+MOL-euclidean-abc                 LR-W       -0.0122   0.5234             False
+MOL-euclidean-abc                KNN-S       -0.0145   0.0625             False
+MOL-euclidean-abc                 RF-S       -0.0045   0.7188             False
+MOL-euclidean-abc                 RF-E        0.0089   0.4844             False
+MOL-euclidean-abc                 RF-W       -0.0074   0.3438             False
+MOL-euclidean-abc                XGB-S       -0.0105   0.1562             False
+MOL-euclidean-abc                XGB-E        0.0131   0.3047             False
+MOL-euclidean-abc                XGB-W       -0.0111   0.1719             False
+MOL-euclidean-abc               LGBM-S       -0.0088   0.2500             False
+MOL-euclidean-abc               LGBM-E       -0.0070   0.4375             False
+MOL-euclidean-abc               LGBM-W       -0.0083   0.2500             False
+
+✅ Resultados em results/: results.csv, fold_scores.csv, wilcoxon.csv, comparison_plot.png, mol_images_grid.png, best_mol_params.json

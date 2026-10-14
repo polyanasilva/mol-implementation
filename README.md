@@ -119,6 +119,63 @@ O artigo deixa três pontos sem especificar. As escolhas feitas aqui:
 | Tratamento das restrições da otimização | decodificação com reparo | `MapOptimizeLearn._decode` |
 | "Distância euclidiana" no Map | distância entre os centróides das classes | `map_strategy` |
 
+## Usando com outros dados
+
+Os dois métodos são classificadores no padrão do scikit-learn (`fit`, `predict`,
+`predict_proba`), então funcionam com `cross_val_score`, `GridSearchCV` e `Pipeline`.
+Recebem um `DataFrame` ou array com as features e um vetor com as classes, que podem ser
+números ou texto e ter mais de duas categorias.
+
+```python
+import pandas as pd
+from sklearn.metrics import balanced_accuracy_score
+from sklearn.model_selection import train_test_split
+
+from mol.cnn import MOLCNNClassifier
+from mol.v2 import MOLv2Classifier
+
+df = pd.read_csv("meus_dados.csv")
+X = df.drop(columns="classe")
+y = df["classe"]
+X_tr, X_te, y_tr, y_te = train_test_split(X, y, test_size=0.2, stratify=y, random_state=42)
+
+# MOL original
+mol = MOLCNNClassifier(map_strategy="euclidean", optimizer="pso", learning_rate=1e-3)
+mol.fit(X_tr, y_tr)
+print(balanced_accuracy_score(y_te, mol.predict(X_te)))
+print(mol.mol_.image_shape_)                        # formato da imagem escolhido
+print(X.columns[mol.mol_.selected_features_])       # features usadas, na ordem dos pixels
+imagens = mol.transform_to_images(X_te)             # (amostras, h, w)
+
+# MOL v2
+v2 = MOLv2Classifier(n_features=None)               # None usa todas as features
+v2.fit(X_tr, y_tr)
+print(balanced_accuracy_score(y_te, v2.predict(X_te)))
+print(v2.forma_, X.columns[v2.colunas_])            # formato e feature de cada pixel
+imagens_v2 = v2.para_imagens(X_te)
+```
+
+Antes de usar:
+
+- **Prepare a tabela.** Os métodos não tratam valores ausentes nem colunas de texto. Impute os
+  ausentes e transforme as categóricas em números (one-hot, por exemplo). A padronização
+  já é feita internamente.
+- **Avalie com o mesmo protocolo dos baselines.** Compare com uma regressão logística e uma rede
+  comum nos mesmos folds, como em `experimentos/principal.py`. Nesta base, o MOL não superou
+  esses modelos.
+- **No MOL original**, `map_strategy` aceita `euclidean`, `anova`, `pearson`, `fisher`,
+  `gain_ratio`, `mutual_info` e `random_forest`; `optimizer` aceita `pso`, `epso`, `abc` e
+  `random`. Os padrões `n_population=50` e `max_evaluations=500` são os do artigo. Lembre que o
+  ótimo da Eq. 1 tende a ser uma imagem com 2 features (ver os controles).
+- **No MOL v2**, a imagem tem formato fixo próximo de um quadrado, então o número de features
+  não pode ser primo. Com 13 features, por exemplo, use `n_features=12`, que seleciona as 12
+  por mRMR. Para centenas de features, reduza com `n_features` (por exemplo 64 ou 100) e
+  aumente `n_iter` se o erro do arranjo (`v2.erro_arranjo_`) ainda estiver caindo.
+  `modelo="mlp"` (o controle sem convolução) só aceita duas classes.
+- **Tempo:** cada `fit` treina uma CNN do zero (100 épocas por padrão). Com `GridSearchCV` e
+  10 folds, isso se multiplica rapidamente; reduza `epochs` ou use `early_stopping=True` no
+  `MOLCNNClassifier` para testes.
+
 ## Notebooks
 
 | Notebook | Conteúdo |

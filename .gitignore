@@ -1,0 +1,32 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.ipynb_checkpoints/
+
+# ambientes virtuais
+.venv/
+venv/
+apresentacao/.venv/
+
+# sistema e editor
+.DS_Store
+.vscode/
+.idea/
+
+# apresentação: saídas de renderização (regeneráveis)
+apresentacao/media/
+apresentacao/slides/
+apresentacao/*_video.mp4
+
+# saídas temporárias dos experimentos
+results/*_quick/
+results/**/*_rapido.csv
+logs/
+notebooks/logs/
+
+# teste pessoal
+teste_expressao/
+
+# notebook experimental
+notebooks/1.EDA.ipynb

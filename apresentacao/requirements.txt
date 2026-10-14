@@ -1,0 +1,5 @@
+# Ambiente da apresentação (testado com Python 3.13).
+# Separado do ambiente dos experimentos: o Manim e o TensorFlow pedem versões diferentes do numpy.
+# Fora do Python, as fórmulas precisam de LaTeX e dvisvgm (no macOS: brew install texlive dvisvgm).
+manim==0.21.0
+manim-slides[pyside6]==5.7.0

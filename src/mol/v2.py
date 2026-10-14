@@ -29,7 +29,7 @@ def formato_quadrado(k):
     h = max(d for d in range(1, int(np.sqrt(k)) + 1) if k % d == 0)
     if h == 1 and k > 3:
         raise ValueError(f"{k} features não formam uma grade 2D (número primo). "
-                         f"Escolha outro n_features, por exemplo {k - 1} ou {k + 1}.")
+                         f"Use n_features={k - 1} para selecionar {k - 1} features por mRMR.")
     return h, k // h
 
 
